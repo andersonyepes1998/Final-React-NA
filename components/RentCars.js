@@ -1,10 +1,10 @@
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { TextInput,Button } from 'react-native-paper';
 import { useForm, Controller } from 'react-hook-form';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useState } from 'react';
 import {styles, styleRenta} from '../assets/style/RentCars'
-import { styleInp, styleBut } from '../assets/style/style';
+import { styleInp, styleBut, styleImage} from '../assets/style/style';
 // import App from '../App';
 import Cars from './Cars';
 
@@ -34,6 +34,13 @@ export default function RentsCars(){
 
     return(
         <View  style={styles.container}>
+
+                <Image
+                    style={styleImage.img}
+                    source={require('../assets/images/Logo.png')}
+                />
+
+
             <Text style={styleRenta.renta}>RENTA DE AUTOS</Text>
 
             <TextInput

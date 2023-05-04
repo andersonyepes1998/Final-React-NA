@@ -4,7 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { stylesCon, styleTexto} from '../assets/style/Cars';
-import { styleInp, styleBut } from '../assets/style/style';
+import { styleInp, styleBut, styleImage } from '../assets/style/style';
 
 
 
@@ -31,6 +31,12 @@ export default function Cars(props){
 
     return(
         <View style={stylesCon.container2}>
+
+            <Image
+                style={styleImage.img}
+                source={require('../assets/images/Logo.png')}
+            />
+
             <Text style={styleTexto.carro}>DESEAS INGRESAR ALGÚN VEHICULO</Text>
 
             <TextInput

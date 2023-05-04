@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-export {styles,styleRenta}
+export {styles,styleRenta,styleImage}
 
 
 const styles = StyleSheet.create({
@@ -10,6 +10,14 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
 });
+
+const styleImage = StyleSheet.create({
+  img:{
+      top:-1,
+      width:100,
+      height:100
+  }
+})
 
 const styleRenta = StyleSheet.create({
     renta:{

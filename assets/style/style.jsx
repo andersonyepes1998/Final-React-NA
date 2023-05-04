@@ -12,13 +12,13 @@ const styles = StyleSheet.create({
 
 const styleImage = StyleSheet.create({
     img:{
-        top:-5,
+        top:-1,
         width:100,
         height:100
     },
     auto:{
         opacity: 0.5,
-        marginTop:50,
+        marginTop:60,
         width:400,
         height:190
     }
@@ -26,6 +26,7 @@ const styleImage = StyleSheet.create({
 
 const styleText = StyleSheet.create({
     txt:{
+        marginTop:20,
         color:'red',
         fontSize:30,
         fontWeight:"bold"
@@ -50,9 +51,9 @@ const contenedorBtn =StyleSheet.create({
 
 const styleBut = StyleSheet.create({
     btn:{
-        marginTop: 20, 
-        backgroundColor: 'red',
-        marginRight: 10
+        marginTop: 30, 
+        backgroundColor: '#8b0000',
+        marginRight: 10,
     }
 })
 

@@ -28,14 +28,19 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return(
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home' screenOptions={{
+      <Stack.Navigator initialRouteName='HomeScreen' screenOptions={{
+        // headerShown:false,
         headerStyle: {
           backgroundColor: "gray"
         },
           headerTintColor: "white",
       }}>
-        <Stack.Screen name='HomeTabs' component={HomeTabs} options={{title: 'Mercedes Bens'}}/>
-        <Stack.Screen name='HomeRegister' component={HomeRegister} options={{title: 'Mercedes Bens'}}/>
+        <Stack.Screen name='HomeTabs' component={HomeTabs} options={{title: 'Mercedes Bens',
+        headerShown:false
+      }}/>
+        <Stack.Screen name='HomeRegister' component={HomeRegister} options={{title: 'Mercedes Bens',
+        // headerShown:false
+      }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -58,7 +63,7 @@ function HomeScreen({navigation}){
         style={styleImage.img}
         source={require('./assets/images/Logo.png')}
       />
-      <Text style={styleText.txt}>INICIAR SESIÓN</Text>
+      <Text style={styleText.txt}>WELCOME</Text>
 
       <TextInput
         label="Correo electronico"
@@ -223,19 +228,19 @@ function HomeTabs(){
         headerShown:false,
         tabBarActiveTintColor: 'white',
         //tabBarInactiveTintColor: 'white',
-        tabBarActiveBackgroundColor: 'gray',
+        tabBarActiveBackgroundColor: '#bf930d',
         tabBarInactiveBackgroundColor: '#8b0000'
       }}
     >
       <Tab.Screen name='Home' component={HomeScreen} options={{
         tabBarStyle: { display: 'none' },
-        tabBarIcon: (tabInfo) => (<MaterialIcons name='home' size={30} color='#AAA' />)
+        tabBarIcon: (tabInfo) => (<MaterialIcons name='home' size={30} color='white' />)
       }} />
       <Tab.Screen name='Cars' component={Cars} options={{
-        tabBarIcon: (tabInfo) => (<MaterialIcons name='train' size={30} color='#AAA' />)
+        tabBarIcon: (tabInfo) => (<MaterialIcons name='train' size={30} color='white' />)
       }} />
       <Tab.Screen name='RentCars' component={RentsCars} options={{
-        tabBarIcon: (tabInfo) => (<MaterialIcons name='badge' size={30} color='#AAA' />)
+        tabBarIcon: (tabInfo) => (<MaterialIcons name='badge' size={30} color='white' />)
       }} />
       {/* <Tab.Screen name='Lista' component={Lista} options={{
         tabBarIcon: (tabInfo) => (<MaterialIcons name='euro' size={30} color='#AAA' />)
