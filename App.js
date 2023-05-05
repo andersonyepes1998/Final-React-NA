@@ -10,14 +10,13 @@ import { styles, styleImage, styleText, styleInp, styleBut, contenedorBtn, style
 import Cars from './components/Cars';
 import RentsCars from './components/RentCars';
 import Lista from './components/Lista';
+import {vehiculos} from './components/Cars'
 
 
 let users = [
   { email: 'andersonyepesbedoya@gmail.com', name: 'anderson', password: "22", role: 1 },
   { email: 'aladeus@gmail.com', name: 'alejandro', password: "11", role: 2 }
 ]
-
-
 
 
 const Stack = createNativeStackNavigator();
@@ -64,7 +63,9 @@ function HomeScreen({navigation}){
         source={require('./assets/images/Logo.png')}
       />
       <Text style={styleText.txt}>WELCOME</Text>
+      {/* <Controller
 
+      /> */}
       <TextInput
         label="Correo electronico"
         mode='Flat'
@@ -190,6 +191,9 @@ function HomeRegister({navigation}){
           icon="account-plus"
           mode="contained"
           onPress={()=>{
+            if(name === name){
+              seterrormess('El nombre debe de ser diferente...')
+            }
             if (email == '' && name == '' && password == '') {
               seterrormess('Todos los campos son obligatorios')
               //limpiar();
@@ -239,7 +243,9 @@ function HomeTabs(){
       <Tab.Screen name='Cars' component={Cars} options={{
         tabBarIcon: (tabInfo) => (<MaterialIcons name='train' size={30} color='white' />)
       }} />
-      <Tab.Screen name='RentCars' component={RentsCars} options={{
+      <Tab.Screen name='RentCars' component={RentsCars}
+      initialParams={{vehiculos: vehiculos}}
+      options={{
         tabBarIcon: (tabInfo) => (<MaterialIcons name='badge' size={30} color='white' />)
       }} />
       {/* <Tab.Screen name='Lista' component={Lista} options={{

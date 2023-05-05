@@ -7,6 +7,7 @@ import {styles, styleRenta} from '../assets/style/RentCars'
 import { styleInp, styleBut, styleImage} from '../assets/style/style';
 // import App from '../App';
 import Cars from './Cars';
+import {vehiculos as carro} from '../components/Cars'
 
 
 let rentas = [
@@ -14,7 +15,6 @@ let rentas = [
 ]
 
 export default function RentsCars(){
-
     // console.log(estado)
 
     const [rentan, setRentan] = useState ('');
@@ -74,7 +74,7 @@ export default function RentsCars(){
             />
 
             <TextInput
-                label="Estado de la Renta"
+                label="Fecha de la Renta"
                 mode='Flat'
                 left={<TextInput.Icon icon="update" />}
                 style={styleInp.input}
@@ -99,6 +99,11 @@ export default function RentsCars(){
                                 placa: placa,
                                 estado: estado
                             })
+                            let carrito = carro.find(plac => plac.placa == placa)
+                            if(carrito.estado == 'disponible'){
+                                carrito.estado= 'no disponible'
+                                setMensess('guardo')
+                            }
                             console.log(rentas);
                             setTimeout (function(){
                                 limpiar()

@@ -6,16 +6,16 @@ import { useState } from 'react';
 import { stylesCon, styleTexto} from '../assets/style/Cars';
 import { styleInp, styleBut, styleImage } from '../assets/style/style';
 
-
-
+export let vehiculos =[
+    {placa: 'mqs 456', auto: 'Merces2', estado:'disponible'}
+]
 
 export default function Cars(props){
 
     //console.log(props)
 
-    let vehiculos =[
-        {placa: 'mqs 456', auto: 'Merces2', estado:'Disponible'}
-    ]
+    
+    
     
 
     const [placa, setPlaca] = useState('');
@@ -100,28 +100,32 @@ export default function Cars(props){
                 onPress={()=>{
 
                     let findPlaca = vehiculos.find(vehiculo => vehiculo.placa == placa)
-                    
-                    if(placa == ''){
-                        setTimeout(function(){
-                            limpiar()
-                        },3000)
-                        setMensaje('Para poder hacer una busqueda debes ingresar la placa')
-                    }else{
-                        if (findPlaca == undefined && estado != 'disponible') {
-                            setMensaje('Vehiculo No dispoible...')
+                    // if(estado != 'disponible'){
+                    //     setMensaje('Vehiculo No dispoible...')
+                    // }else{
+                        if(placa == ''){
                             setTimeout(function(){
                                 limpiar()
-                            },2000)
+                            },3000)
+                            setMensaje('Para poder hacer una busqueda debes ingresar la placa')
                         }else{
-                            setMensaje('Vehiculo encontrado correctamente en el sistema')
-                            setAuto(findPlaca.auto)
-                            setEstado(findPlaca.estado)
-                            console.log(findPlaca)
-                            setTimeout(function(){
-                                limpiar()
-                            },7000)
+                            if (findPlaca == undefined ) {
+                                setMensaje('No disponible....')
+                                setTimeout(function(){
+                                    limpiar()
+                                },2000)
+                            }else{
+                                setMensaje('Vehiculo encontrado correctamente en el sistema')
+                                setAuto(findPlaca.auto)
+                                setEstado(findPlaca.estado)
+                                console.log(findPlaca)
+                                setTimeout(function(){
+                                    limpiar()
+                                },7000)
+                            }
                         }
-                    }
+                    
+                    
                 }}
             >
                 Buscar Autos
